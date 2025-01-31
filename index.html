@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LabTrack</title>
+    <!-- Linking the external CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<?php
+    // Include the PHP logic file
+    include("login_handler.php");
+    ?>
+
+<div class="login-container">
+    <div class="header">
+        <h1>Inventory System</h1>
+        <p>Enter your credentials to access the system</p>
+    </div>
+    <form method="POST" action="login_handler.php">
+        <?php if (isset($error)): ?>
+        <div class="error"><?php echo htmlspecialchars($error); ?></div>
+        <?php endif; ?>
+
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input
+                    type="text"
+                    id="username"
+                    name="username"
+                    required
+                    autocomplete="username"
+            >
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    required
+                    autocomplete="current-password"
+            >
+        </div>
+
+
+
+        <button type="submit">Log In</button>
+    </form>
+</div>
+</body>
+</html>
